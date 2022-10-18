@@ -25,12 +25,13 @@ public class increase_bounce : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log(bounce.bounciness);
+        
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        mrid.AddForce(Vector3f);
+        /*mrid.AddForce(Vector3f);*/
         bounce.bounciness = bounce.bounciness + 1f;
+        Debug.Log(bounce.bounciness);
     }
 }
