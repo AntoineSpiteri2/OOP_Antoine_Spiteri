@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7048919461549750606}
   - component: {fileID: 7048919461549750607}
   - component: {fileID: 7048919461549750600}
-  - component: {fileID: 7048919461549750605}
   m_Layer: 0
   m_Name: Ball1
   m_TagString: Untagged
@@ -138,16 +137,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velcoity: {x: 80, y: 120}
---- !u!114 &7048919461549750605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7048919461549750603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59785ee2292450344b8c6c6c8a6c57f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounce: {fileID: 6200000, guid: 1d39c8e8f15732e4ab82b0e9f4578b9f, type: 2}

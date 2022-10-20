@@ -6,6 +6,7 @@ public class BallMovement : MonoBehaviour
 {
 
     public Vector2 velcoity = new Vector2(80f, 120f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +18,10 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
        /* GetComponent<Transform>().position = transform.position + new Vector3( 0.1f, 0.1f, 0f);*/
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("I have been hit");
     }
 }

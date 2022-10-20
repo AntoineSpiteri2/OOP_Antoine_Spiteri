@@ -239,6 +239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalwall: {fileID: 9133950985342915573, guid: 9f654e799518ad2438757e9360dbe8fe, type: 3}
   horizwall: {fileID: 3647157717081431259, guid: 29b644218b849744aa528cfc672c7115, type: 3}
+  verticalwallT: {fileID: 765007782164635088, guid: 83b5e44a0eeee15449b0352bb083157d, type: 3}
+  horizwallT: {fileID: 8563614383297773112, guid: cbdd771bfbb0c104c9996ac71de10625, type: 3}
   padding: 0.5
 --- !u!4 &1908323051
 Transform:
@@ -267,4 +269,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be7838a29397164993a440b7e2ea69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myprefab: {fileID: 7048919461549750603, guid: 2b17e78e2b9ea72468940d672b131a55, type: 3}
+  myprefab: {fileID: 7048919461549750603, guid: b55256ae10d041b42ae587ee7c6146fa, type: 3}
+  padding: 0.5
