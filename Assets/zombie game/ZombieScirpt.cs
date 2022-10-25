@@ -8,12 +8,12 @@ public class ZombieScirpt : MonoBehaviour
 
     public GameObject player;
 
-    Transform playerpos;
+
 
 
     private void Start()
     {
-        playerpos = player.transform;
+        
     }
 
 

@@ -48,8 +48,8 @@ public class soilder : MonoBehaviour
     {
 
  
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, xmin, xmax), Mathf.Clamp(transform.position.y, ymin, ymax));
-        myRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal")* speed, Input.GetAxis("Vertical")* speed, 0); //< -----doesnt really work well with deltatime but use fixedupdate to sort of fix that
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, xmin, xmax), Mathf.Clamp(transform.position.y, ymin, ymax));
+        myRigidbody.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed); //< -----doesnt really work well with deltatime but use fixedupdate to sort of fix that
 
 
         /*if (Input.GetKey(KeyCode.A))
