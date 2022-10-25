@@ -24,7 +24,7 @@ public class ZombieScirpt : MonoBehaviour
 
 
 
-        Vector2.MoveTowards(transform.position, playerpos);
+        /* Vector2.MoveTowards(transform.position, playerpos); */
     }
 
 
