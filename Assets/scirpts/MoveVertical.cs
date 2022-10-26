@@ -6,24 +6,18 @@ using UnityEngine;
 public class MoveVertical : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float yspeed;
 
-    public float speed;
-
-/*    public float speed1
-    {
-        set { speed = value; }
-        get { return this.speed; }
-    }*/
 
 
     void Start()
     {
-        speed = 5f;
+        /* yspeed = 1; */
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(0f, yspeed * Time.deltaTime, 0f);
     }
 }
