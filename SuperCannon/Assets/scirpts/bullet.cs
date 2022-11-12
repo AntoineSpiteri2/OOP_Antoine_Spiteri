@@ -18,9 +18,11 @@ public class bullet : MonoBehaviour
     }
 
 
-    void OnBecameInvisible()
+    private void OnTriggerExit2D(Collider2D collision)
     {
         Destroy(this.gameObject);
+
     }
+
 
 }

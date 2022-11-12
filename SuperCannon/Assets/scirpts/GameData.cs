@@ -41,7 +41,7 @@ public abstract class GameData : MonoBehaviour
     {
         float xmin;
         Camera mycamera = Camera.main;
-        xmin = mycamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + 0.5f;
+        xmin = mycamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
         return xmin;
     }
 
@@ -49,7 +49,7 @@ public abstract class GameData : MonoBehaviour
     {
         float xmax;
         Camera mycamera = Camera.main;
-        xmax = mycamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - 0.5f;
+        xmax = mycamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
         return xmax;
     }
 
@@ -58,7 +58,7 @@ public abstract class GameData : MonoBehaviour
     {
         float Ymin;
         Camera mycamera = Camera.main;
-        Ymin = mycamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + 0.5f;
+        Ymin = mycamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
         return Ymin;
     }
 
@@ -67,7 +67,7 @@ public abstract class GameData : MonoBehaviour
     {
         float Ymax;
         Camera mycamera = Camera.main;
-        Ymax = mycamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - 0.5f;
+        Ymax = mycamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
         return Ymax;
     }
 }
