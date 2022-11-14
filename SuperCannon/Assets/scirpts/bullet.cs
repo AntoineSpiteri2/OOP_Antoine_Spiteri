@@ -20,7 +20,10 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+
+         Destroy(this.gameObject);
+         Debug.Log(collision.name);
+
 
     }
 
