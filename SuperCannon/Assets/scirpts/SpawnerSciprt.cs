@@ -13,9 +13,11 @@ public class SpawnerSciprt : MonoBehaviour
 {
 
     public GameObject enemy;
+    public GameObject enemy2;
     public GameObject player;
-    public float speed = 40f;
+    public float speed = 100f;
     float nextSpawn = 0.0f;
+    bool A = true;
 
 
 
@@ -34,6 +36,13 @@ public class SpawnerSciprt : MonoBehaviour
     {
         SpawnEnemy();
         Move();
+
+        if (gameObject.transform.position.y < 0)
+        {
+            gameObject.transform.position = new Vector3(40, 0, 0);
+            speed = UnityEngine.Random.Range(40f, 200f);
+
+        }
     }
 
     void Move()
@@ -48,22 +57,25 @@ public class SpawnerSciprt : MonoBehaviour
 
         if (Time.time > nextSpawn)
         {
+
             nextSpawn = Time.time + ran;
 
 
             Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
 
-            if (gameObject.transform.position.y > 0)
+            if (A == true)
             {
-
                 Instantiate(enemy, pos, Quaternion.identity);
-                ran = UnityEngine.Random.Range(1f, 2.5f);
-
-            }
-            else
+                ran = UnityEngine.Random.Range(2.5f, 5f);
+                A = false;
+            } else if (A == false)
             {
-                speed = 500f;
+                Instantiate(enemy2, pos, Quaternion.identity);
+                ran = UnityEngine.Random.Range(2.5f, 5f);
+                A = true; 
             }
+
+
 
         }
     }

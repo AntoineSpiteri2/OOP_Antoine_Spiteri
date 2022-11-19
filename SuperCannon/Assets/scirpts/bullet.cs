@@ -18,23 +18,15 @@ public class bullet : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = direction * speed;
     }
 
-    /* 
+     
         private void OnTriggerExit2D(Collider2D collision)
         {
-                    if (collision.name == "Enemy(Clone)" && collision.name != "Cannon")
-                    {
-                        Destroy(collision.gameObject);
-                        Destroy(this.gameObject);
-                        Debug.Log(collision.name);
-                    } else if (collision.name != "Cannon")
-                    {
-                        Destroy(this.gameObject);
-                    } 
 
             collision.gameObject.SetActive(false);
+            gameObject.SetActive(false);
 
 
-        } */
+        } 
 
 
     void OnBecameInvisible()
