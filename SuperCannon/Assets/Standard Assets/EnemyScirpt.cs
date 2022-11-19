@@ -13,7 +13,7 @@ public class EnemyScirpt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Enspeed = UnityEngine.Random.Range(1f, 10f);
     }
 
     // Update is called once per frame

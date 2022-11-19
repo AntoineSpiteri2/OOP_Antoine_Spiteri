@@ -50,15 +50,19 @@ public class SpawnerSciprt : MonoBehaviour
         {
             nextSpawn = Time.time + ran;
 
+
             Vector3 pos = new Vector3(transform.position.x, transform.position.y, 0);
 
             if (gameObject.transform.position.y > 0)
             {
+
                 Instantiate(enemy, pos, Quaternion.identity);
-            } else
+                ran = UnityEngine.Random.Range(1f, 2.5f);
+
+            }
+            else
             {
-                ran = UnityEngine.Random.Range(1f, 3f);
-                speed = UnityEngine.Random.Range(10f, 40f);
+                speed = 500f;
             }
 
         }
