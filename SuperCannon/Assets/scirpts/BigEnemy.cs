@@ -7,7 +7,7 @@ public class BigEnemy : EnemyScirpt
     // Start is called before the first frame update
     protected override void Start()
     {
-        Enspeed = UnityEngine.Random.Range(1f, 2.5f);
+        Enspeed = UnityEngine.Random.Range(2.5f, 4f);
         dmg = 5;
         base.Start();
     }

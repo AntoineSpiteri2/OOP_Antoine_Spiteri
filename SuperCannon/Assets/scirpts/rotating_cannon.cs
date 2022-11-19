@@ -63,13 +63,14 @@ public class rotating_cannon : MonoBehaviour
 
             /* Instantiate(bulletprefab2, transform.GetChild(0).position, Quaternion.identity); */
 
-            /*             GameObject Bigbullet = ObjectPool.SharedInstance.GetPooledObject();
+            GameObject BigBullet = ObjectPool.SharedInstance.GetPooledObject2();
 
-                        if (Bigbullet != null)
-                        {
-                            Bigbullet.transform.position = this.gameObject.transform.GetChild(0).position;
-                            Bigbullet.SetActive(true);
-                        } */
+            if (BigBullet != null)
+            {
+                BigBullet.transform.position = this.gameObject.transform.GetChild(0).position;
+                BigBullet.SetActive(true);
+            }
+
 
         }
 
