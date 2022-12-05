@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 283833777962163938}
   - component: {fileID: 4957945636171974134}
   - component: {fileID: 3116635223341194941}
-  - component: {fileID: -4692218056867451162}
+  - component: {fileID: -360966832976180390}
   m_Layer: 0
   m_Name: zombie small
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &283833777962163938
 SpriteRenderer:
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7774066610661108566}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-4692218056867451162
+--- !u!114 &-360966832976180390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,9 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7774066610661108566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16bb2010833976b458a5f6d0ac62fec8, type: 3}
+  m_Script: {fileID: 11500000, guid: f1c9a14e973608746b587c513aaf57c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enspeed: 5
-  player: {fileID: 3786363413648512885, guid: 85c3eade3e8c42a4494efc4d2804fca7, type: 3}
-  dmg: 5
+  enemys: {fileID: 11400000, guid: 6f51802f7e727b348b2abce1411e3cda, type: 2}

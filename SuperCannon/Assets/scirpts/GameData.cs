@@ -30,6 +30,7 @@ public abstract class GameData : MonoBehaviour
     }
 
 
+
     public static Vector3 GetMousePos()
     {
         Vector3 mousepoint3D = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.back * Camera.main.transform.position.z);

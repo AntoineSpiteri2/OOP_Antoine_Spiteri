@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
+
     public static ObjectPool SharedInstance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
-    public GameObject objectToPool2;
-    public List<GameObject> pooledObjects2;
     public int amountToPool;
     void Awake()
     {
@@ -23,24 +22,9 @@ public class ObjectPool : MonoBehaviour
             tmp = Instantiate(objectToPool);
             tmp.SetActive(false);
             pooledObjects.Add(tmp);
-
-
         }
-
-        pooledObjects2 = new List<GameObject>();
-        GameObject tmp2;
-        for (int i = 0; i < amountToPool; i++)
-        {
-            tmp2 = Instantiate(objectToPool2);
-            tmp2.SetActive(false);
-            pooledObjects2.Add(tmp2);
-
-        } 
-
-
-
-
     }
+
 
     public GameObject GetPooledObject()
     {
@@ -50,23 +34,10 @@ public class ObjectPool : MonoBehaviour
             {
                 return pooledObjects[i];
             }
-
         }
-
         return null;
     }
 
 
-    public GameObject GetPooledObject2()
-    {
-        for (int i = 0; i < amountToPool; i++)
-        {
-            if (!pooledObjects2[i].activeInHierarchy)
-            {
-                return pooledObjects2[i];
-            }
-        }
 
-        return null;
     }
-}

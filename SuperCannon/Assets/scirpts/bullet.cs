@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class bullet : MonoBehaviour
+public abstract class  bullet : MonoBehaviour
 {
     [SerializeField] protected float speed = 5;
     Vector3 mousePoint3D;
@@ -19,14 +19,7 @@ public class bullet : MonoBehaviour
     }
 
      
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-
-            collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
-
-
-        } 
+  
 
 
     void OnBecameInvisible()

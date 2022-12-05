@@ -3,86 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class rotating_cannon : MonoBehaviour
+
+public class Rotating_Cannon : MonoBehaviour
 {
+    Vector3 mousePoint3D;
+    Quaternion newrotation;
 
-    Vector3 mousepoint3D;
-    Quaternion newr;
-    Quaternion clmapl, clmaph;
+    Quaternion clampRotationLow, clampRotationHigh;
 
-    public Transform FirePos;
-
-    public GameObject bulletprefab;
-    public GameObject bulletprefab2;
+    public ObjectPool Bullet1pool, Bullet2pool;
+  //  public Transform fireposition;
     // Start is called before the first frame update
     void Start()
     {
-        clmapl = Quaternion.Euler(0, 0, -70);
-        clmaph = Quaternion.Euler(0, 0, 70);
+        clampRotationLow = Quaternion.Euler(0, 0, -70);
+        clampRotationHigh = Quaternion.Euler(0, 0, 70);
     }
 
     // Update is called once per frame
     void Update()
     {
-        pointAtMouse();
+        PointAtMouse();
         BulletFiring();
     }
 
-
-    void pointAtMouse()
+    void PointAtMouse()
     {
-        mousepoint3D = GameData.GetMousePos();
-        newr = Quaternion.LookRotation(transform.position - mousepoint3D, Vector3.forward);
-        newr.x = 0;
-        newr.y = 0;
-
-        newr.z = Mathf.Clamp(newr.z, clmapl.z, clmaph.z);
-        newr.w = Mathf.Clamp(newr.w, clmapl.w, clmaph.w);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newr, Time.deltaTime);
-        this.transform.rotation = newr;
+        mousePoint3D = GameData.GetMousePos();
+        newrotation = Quaternion.LookRotation(transform.position - mousePoint3D, Vector3.forward);
+        newrotation.x = 0;
+        newrotation.y = 0;
+        newrotation.z = Mathf.Clamp(newrotation.z, clampRotationLow.z, clampRotationHigh.z);
+        newrotation.w = Mathf.Clamp(newrotation.w, clampRotationLow.w, clampRotationHigh.w);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newrotation, Time.deltaTime * 3f);
+        //this.transform.rotation = newrotation;
     }
+
 
     void BulletFiring()
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
-
-            GameObject smallbullet = ObjectPool.SharedInstance.GetPooledObject();
-
-            if (smallbullet != null)
+            GameObject smallbullet = Bullet1pool.GetComponent<ObjectPool>().GetPooledObject();
+            if (smallbullet!=null)
             {
                 smallbullet.transform.position = this.gameObject.transform.GetChild(0).position;
                 smallbullet.SetActive(true);
             }
-
-            /* Instantiate(bulletprefab, transform.GetChild(0).position, Quaternion.identity);*/
+           // Instantiate(bullet1prefab, this.gameObject.transform.GetChild(0).position, Quaternion.identity);
         }
 
         if (CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
-
-            /* Instantiate(bulletprefab2, transform.GetChild(0).position, Quaternion.identity); */
-
-            GameObject BigBullet = ObjectPool.SharedInstance.GetPooledObject2();
-
-            if (BigBullet != null)
+            GameObject largebullet = Bullet2pool.GetComponent<ObjectPool>().GetPooledObject();
+            if (largebullet != null)
             {
-                BigBullet.transform.position = this.gameObject.transform.GetChild(0).position;
-                BigBullet.SetActive(true);
-            }
-
-
+                largebullet.transform.position = this.gameObject.transform.GetChild(0).position;
+                largebullet.SetActive(true);
+            } 
+            /*Instantiate(bullet2prefab, this.gameObject.transform.GetChild(0).position, Quaternion.identity);*/
         }
 
-
-
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision.gameObject.SetActive(false);
-    }
 }
-
-
