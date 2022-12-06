@@ -4,71 +4,48 @@ using UnityEngine;
 
 public abstract class GameData : MonoBehaviour
 {
-    public Vector3 MousePos
+    private static int _score = 0;
+    public static int Score {
+        get { return _score; }
+        set { _score = value; }
+
+    }
+
+    public static float XMin
+    {
+        get { return Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x; }
+    }
+
+    public static float XMax
+    {
+        get { return Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x; }
+    }
+
+    public static float YMin
+    {
+        get { return Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y; }
+    }
+
+    public static float YMax
+    {
+        get { return Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y; }
+    }
+
+
+    public static Vector3 MousePos
     {
         get { return GetMousePos(); }
     }
 
-    public float MinX
-    {
-        get { return GetMinX(); }
-    }
 
-    public float MaxX
-    {
-        get { return GetMaxX(); }
-    }
 
-    public float MaxY
-    {
-        get { return GetMaxY(); }
-    }
 
-    public float MinY
+
+    private static Vector3 GetMousePos()
     {
-        get { return GetMinY(); }
+        Vector3 mousePoint3D = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.back * Camera.main.transform.position.z);
+        return mousePoint3D;
     }
 
 
-
-    public static Vector3 GetMousePos()
-    {
-        Vector3 mousepoint3D = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.back * Camera.main.transform.position.z);
-        return mousepoint3D;
-    }
-
-
-    public static float GetMinX()
-    {
-        float xmin;
-        Camera mycamera = Camera.main;
-        xmin = mycamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
-        return xmin;
-    }
-
-    public static float GetMaxX()
-    {
-        float xmax;
-        Camera mycamera = Camera.main;
-        xmax = mycamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
-        return xmax;
-    }
-
-
-    public static float GetMinY()
-    {
-        float Ymin;
-        Camera mycamera = Camera.main;
-        Ymin = mycamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
-        return Ymin;
-    }
-
-
-    public static float GetMaxY()
-    {
-        float Ymax;
-        Camera mycamera = Camera.main;
-        Ymax = mycamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
-        return Ymax;
-    }
 }

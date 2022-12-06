@@ -12,7 +12,7 @@ public abstract class  bullet : MonoBehaviour
     protected virtual void OnEnable()
     {
 
-        mousePoint3D = GameData.GetMousePos();
+        mousePoint3D = GameData.MousePos;
         Vector2 direction = new Vector2(mousePoint3D.x, mousePoint3D.y + 5f);
         direction.Normalize();
         GetComponent<Rigidbody2D>().velocity = direction * speed;

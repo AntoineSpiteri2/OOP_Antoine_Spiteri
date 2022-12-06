@@ -8,12 +8,19 @@ public class EnemyCol : MonoBehaviour
 {
 
 
-    [SerializeField] enemy enemys;
-
-    int score;
-
+    public int Starthealth, GameScore;
+    private int health;
 
     
+
+
+    void Start()
+    {
+        health = Starthealth;
+    }
+
+
+
 
 
     private void OnTriggerEnter2D(Collider2D Collider)
@@ -32,16 +39,21 @@ public class EnemyCol : MonoBehaviour
 
     public void TakeDmg(Collider2D Colliders)
     {
-
-        Colliders.gameObject.SetActive(false);
-        enemys.health = enemys.strength - enemys.health;
-        enemys.speed--;
-
-        if (enemys.health <= 0)
+        if (Colliders.gameObject.name.Contains("bullet"))
         {
-            Debug.Log(FindObjectOfType<GameData>().GameScore())
-            Destroy(this.gameObject);
+            Colliders.gameObject.SetActive(false);
+            health--;
+            Debug.Log("Enenmy health " + health.ToString());
+
+            if (health <= 0)
+            {
+                
+                GameData.Score += GameScore;
+                Debug.Log("GameScore: " + GameData.Score.ToString());
+                Destroy(this.gameObject);
+            }
         }
+
     }
 
 

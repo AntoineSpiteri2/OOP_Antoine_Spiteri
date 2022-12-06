@@ -8,16 +8,18 @@ public class Rotating_Cannon : MonoBehaviour
 {
     Vector3 mousePoint3D;
     Quaternion newrotation;
-
+    private CannonFiring _FireingIntance;
     Quaternion clampRotationLow, clampRotationHigh;
 
     public ObjectPool Bullet1pool, Bullet2pool;
-  //  public Transform fireposition;
+    //  public Transform fireposition;
     // Start is called before the first frame update
     void Start()
     {
         clampRotationLow = Quaternion.Euler(0, 0, -70);
         clampRotationHigh = Quaternion.Euler(0, 0, 70);
+
+        _FireingIntance = GetComponentInChildren(typeof(CannonFiring)) as CannonFiring;
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class Rotating_Cannon : MonoBehaviour
 
     void PointAtMouse()
     {
-        mousePoint3D = GameData.GetMousePos();
+        mousePoint3D = GameData.MousePos;
         newrotation = Quaternion.LookRotation(transform.position - mousePoint3D, Vector3.forward);
         newrotation.x = 0;
         newrotation.y = 0;
@@ -45,22 +47,14 @@ public class Rotating_Cannon : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
             GameObject smallbullet = Bullet1pool.GetComponent<ObjectPool>().GetPooledObject();
-            if (smallbullet!=null)
-            {
-                smallbullet.transform.position = this.gameObject.transform.GetChild(0).position;
-                smallbullet.SetActive(true);
-            }
-           // Instantiate(bullet1prefab, this.gameObject.transform.GetChild(0).position, Quaternion.identity);
+
+            if (_FireingIntance != null) _FireingIntance.cannonfire(smallbullet);
         }
 
         if (CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
             GameObject largebullet = Bullet2pool.GetComponent<ObjectPool>().GetPooledObject();
-            if (largebullet != null)
-            {
-                largebullet.transform.position = this.gameObject.transform.GetChild(0).position;
-                largebullet.SetActive(true);
-            } 
+            if (_FireingIntance != null) _FireingIntance.cannonfire(largebullet);
             /*Instantiate(bullet2prefab, this.gameObject.transform.GetChild(0).position, Quaternion.identity);*/
         }
 

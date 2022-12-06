@@ -136,4 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c9a14e973608746b587c513aaf57c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys: {fileID: 11400000, guid: 33ae2dba5d9aa534f99f631bd789aef3, type: 2}
+  Starthealth: 5
+  GameScore: 5
